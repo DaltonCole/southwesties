@@ -1,9 +1,10 @@
 ---
 layout: contact
+title: Contact Us
 ---
 
-If you purchased any passes, etc., for Sandia Swing and have not received a refund,
-please contact us by filling out the form below.
+If you need to contact us, please fill out the form below and we will work to 
+quickly respond.
 
 After submitting the form you will be directed to a Formspree url where you
 will be asked to verify your humanity using reCAPTCHA. Don't panic. (Unless 
