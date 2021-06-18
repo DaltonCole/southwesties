@@ -2,7 +2,14 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="{{ site.baseurl }}/"><img src="/assets/images/swabq-web-logo.png" alt=""></a>
+    <!-- <a class="site-title" href="{{ site.baseurl }}/"><img src="/assets/images/swabq-web-logo.png" alt=""></a> -->
+    <a class="site-title" href="{{ site.baseurl }}/">
+      <picture class="site-logo">
+        <source media="(min-width: 650px)" srcset="/assets/images/logo.svg">
+        <source media="(min-width: 320px)" srcset="/assets/images/logo-small.svg">
+        <img src="" alt="" style="width: 100%;">
+      </picture>
+    </a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
