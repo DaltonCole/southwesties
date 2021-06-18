@@ -64,7 +64,7 @@
         }
 
         a:hover {
-            color: $swabq-quaternary;
+            color: $swabq-tertiary;
             // padding-bottom: 0px;
             padding-left: 15px;
             padding-right: 0px;
@@ -183,7 +183,7 @@
 
         &:hover {
             padding-left: 15px;
-            color: $swabq-quaternary;
+            color: $swabq-tertiary;
         }
     }
 }
@@ -191,6 +191,19 @@
 .copyrt {
     text-align: center;
     font-size: $small-font-size;
+    a {
+        // color: $inverse-text-color;
+        // color: $swabq-secondary;
+        text-decoration: none;
+        // transition-property: color, background-color, border-color;
+        // &:visited {
+        //     color: $swabq-secondary;
+        // }
+
+        &:hover {
+            color: $swabq-tertiary;
+        }
+    }
 }
 
 .footer-heading {
