@@ -20,7 +20,3 @@ and that we dance west coast swing to a large range of slow and moderate tempo
 music (typically in the range of 80--120 beats per minute). If you like a 
 dance with a relaxed feel that can be done to a lot of contemporary music, 
 join us! We think you'll be pleased.
-
-<div style="max-width: 600px; margin: 0px auto;">
-    <iframe style="width: 100%" src="https://www.youtube.com/watch?v=TL7TwYGblSw"></iframe>
-</div>
