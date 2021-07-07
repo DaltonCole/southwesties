@@ -1,9 +1,9 @@
 ---
 layout: event
 title: Strictly Swing New Mexico Saturday Dance
-date: 2021-08-21 19:30:00 -0600
-start_time: 2021-08-21 19:30:00 -0600
-end_time: 2021-08-21 22:30:00 -0600
+date: 2021-08-21 19:30:00
+start_time: 2021-08-21 19:30:00
+end_time: 2021-08-21 22:30:00
 location: "CSP Dance Studios, 1624 Eubank Blvd NE, Albuquerque, NM"
 categories: ssnm
 ---
