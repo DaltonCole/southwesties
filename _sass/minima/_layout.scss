@@ -374,3 +374,53 @@
         resize: vertical;
     }
 }
+
+.calendar-event {
+    border-left: 5px solid $swabq-tertiary;
+    box-shadow: 2px 5px #eee;
+    // border-bottom: 1px solid #ccc;
+    // border-right: 1px solid #ccc;
+    // border-top: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 10px;
+    
+    transition: border 0.15s linear;
+
+    margin-bottom: 10px;
+    
+    &:hover {
+        border-left: 10px solid $swabq-tertiary
+    }
+    
+    @include media-query($on-palm) {
+        &:hover {
+            border-left: 10px solid $swabq-tertiary
+        }
+
+        grid-template-columns: 1fr;
+        // grid-template-areas: 'date date main main main main main';
+    }
+
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    // grid-template-areas: 
+    //     'date date main main main main main'
+    //     'readmore readmore readmore readmore readmore readmore readmore';
+}
+
+.cal-read-more {
+    color: $swabq-secondary;
+    text-decoration: none;
+    transition-property: color;
+    transition-duration: .2s;
+    transition-timing-function: linear;
+
+    &:visited {
+        color: $swabq-secondary;
+    }
+
+    &:hover {
+        color: $swabq-quaternary;
+        text-decoration: none;
+    }
+}

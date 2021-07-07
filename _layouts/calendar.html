@@ -1,0 +1,98 @@
+---
+layout: default
+---
+<script>
+  function cal_toggle(id_str) {
+    el = document.getElementById(id_str);
+    el_readmore = document.getElementById(id_str + "-readmore")
+    if (el.style.maxHeight == "0px" ) {
+      el.style.maxHeight = "300px";
+      el_readmore.innerHTML = "Read Less";
+      
+    } else {
+      el.style.maxHeight = "0px";
+      el_readmore.innerHTML = "Read More";
+
+    }
+  }
+</script>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <!-- <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+  </header> -->
+
+  <div class="post-content" itemprop="articleBody">
+    {% capture todays_date_s %} {{ "today" | date: "%s" }} {% endcapture %}
+    {% capture todays_month %} {{ "today" | date: "%m" }} {% endcapture %}
+    {% capture todays_year %} {{ "today" | date: "%Y" }} {% endcapture %}
+    {% assign current_month = todays_month %}
+    {% assign current_year = todays_year %}
+
+    <!-- {{ "today" | date: "%b" }}     -->
+    <!-- {{ todays_year }} -->
+    <div>
+      <h2>{{ "today" | date: "%B" }}</h2>
+    </div>
+    {% for event in site.events %}
+      {% capture event_date_s %} {{ event.date | date: "%s" }} {% endcapture %}
+      {% capture event_month %} {{ event.date | date: "%m" }} {% endcapture %}
+      {% capture event_year %} {{ event.date | date: "%Y" }} {% endcapture %}
+      <!-- <div style="max-width: 800px; margin: 50px auto;"> -->
+      {% if event_month > current_month %}
+        {% assign current_month = event_month %}
+        <div>
+          <h2>{{ event.date | date: "%B" }}</h2>
+        </div>
+      {% endif %}
+      <div>
+        {% if event_date_s > todays_date_s %}
+            <div class="calendar-event" onclick="">
+                <div style="margin-right: 15px; ">
+                    <p style="font-size: 130%; margin-bottom: 0px;">
+                        {{ event.date | date: "%b %d" }}
+                    </p>
+                    <p style="font-size: 90%;">
+                        {% if event.start_time.size > 1 %}
+                            {{ event.start_time[0] | date: "%I:%M"}}
+                        {% else %}
+                            {{ event.start_time | date: "%I:%M"}} - {{ event.end_time | date: "%I:%M"}} 
+                        {% endif %}
+                    </p>
+                  </div>
+                <div>
+                  <!-- <a style="font-size: 130%;" href="{{ event.url | relative_url }}">{{ event.title }}</a> -->
+                  <p style="margin: 0px; font-size: 130%;">{{ event.title }}</p>
+                  <p style="font-size: 90%">
+                    {{ event.location }} 
+
+                    {% if event.location contains "CSP" %}
+                      <a href="https://www.google.com/maps/place/CSP+Dance+Studios/@35.0990844,-106.5343267,17z/data=!3m1!4b1!4m5!3m4!1s0x872274fdb31a6899:0x2db5eff11357595e!8m2!3d35.09908!4d-106.532138">[Google Map]</a>
+                    
+                    {% elsif event.location contains "222" %}
+                     <a href="https://www.google.com/maps/place/222+Truman+St+NE,+Albuquerque,+NM+87108/@35.0810981,-106.5893704,17z/data=!3m1!4b1!4m5!3m4!1s0x87220b1c728d8d4d:0x8197e46b5e266ca1!8m2!3d35.0810937!4d-106.5871817">[Google Map]</a>
+
+                    {% endif %}
+                  </p>
+                  
+                  {% assign event_id = event.date | date: "%Y-%m-%d" | append: "-" | append: event.title | split: " " | join: "-" | downcase %}
+                  <div id="{{ event_id }}" style="max-height: 0px; overflow: hidden; transition: max-height 0.5s linear">
+                    {{ event.content }}
+                  </div>
+                </div>
+                <div></div>
+                <div>
+                  <!-- <a href="" onclick="cal_toggle("{{ event_id }}")">Read More</a> -->
+                  <p class="cal-read-more" id="{{ event_id | append: "-readmore" }}" onclick="cal_toggle('{{event_id}}')">Read More</p>
+                </div>
+                <!-- <p style="color: #828282; font-size: 90%;">{{ event.date | date: "%b %d, %Y" }}</p> -->
+        
+                <!-- {{ event.content | truncatewords: 100 }} <a href="{{ event.url | relative_url }}">Read More</a> -->
+                <!-- {{ event.content }} -->
+            </div>
+        {% endif %}
+  
+      </div>
+    {% endfor %}
+  </div>

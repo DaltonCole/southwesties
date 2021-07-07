@@ -25,13 +25,12 @@
           <li class="menu-item">
             <a href="{{ site.baseurl }}/">Home</a>
           </li>
-          {% for my_page in site.pages %}
-            {% if my_page.title %}
-            <li class="menu-item">
-              <a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
-            </li>
-            {% endif %}
-          {% endfor %}
+          <li class="menu-item">
+            <a href="{{ "about-us/" | relative_url }}">About Us</a>
+          </li>
+          <li class="menu-item">
+            <a href="{{ "calendar/" | relative_url }}">Calendar</a>
+          </li>
         </ul>
       </div>
     </nav>
