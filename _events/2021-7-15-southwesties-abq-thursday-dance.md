@@ -13,5 +13,4 @@ dancing after that.
 Admission is $3, which includes both the lesson and social 
 dancing. Come join us and have some fun!
 
-Masks are optional for all unvaccinated people. Vaccination status is not checked,
-wearing masks is on the honor system.
+See our new [covid restrictions]({{ "covid-restrictions/" | relative_url }}).

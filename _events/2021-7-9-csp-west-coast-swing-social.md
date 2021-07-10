@@ -12,5 +12,5 @@ CSP's monthly west coast swing social dance!
 
 Admission: $10.
 
-Masks are optional for all unvaccinated people. Vaccination status is not checked,
+Masks are optional for all vaccinated people. Vaccination status is not checked,
 wearing masks is on the honor system.
