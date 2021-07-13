@@ -3,7 +3,7 @@ layout: event
 title: SouthWesties ABQ Thursday Dance
 date: 2021-07-15 19:00:00
 start_time: 2021-07-15 19:00:00
-end_time: 2021-07-15 23:00:00
+end_time: 2021-07-15 22:30:00
 location: "222 Truman St NE, Albuquerque, NM 87108"
 ---
 
