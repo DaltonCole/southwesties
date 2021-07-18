@@ -64,7 +64,7 @@ layout: default
                 <div>
                   <!-- <a style="font-size: 130%;" href="{{ event.url | relative_url }}">{{ event.title }}</a> -->
                   <p style="margin: 0px; font-size: 130%;">{{ event.title }}</p>
-                  <p style="font-size: 90%">
+                  <p style="font-size: 90%; padding-right: 5px;">
                     {{ event.location }} 
 
                     {% if event.location contains "CSP" %}
@@ -80,7 +80,7 @@ layout: default
                   </p>
                   
                   {% assign event_id = event.date | date: "%Y-%m-%d" | append: "-" | append: event.title | split: " " | join: "-" | downcase %}
-                  <div id="{{ event_id }}" style="max-height: 0px; overflow: hidden; transition: max-height 0.5s linear">
+                  <div id="{{ event_id }}" style="padding-right: 10px; max-height: 0px; overflow: hidden; transition: max-height 0.5s linear">
                     {{ event.content }}
                   </div>
                 </div>
