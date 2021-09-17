@@ -8,7 +8,7 @@ title: COVID Restrictions
 Updated: September 1, 2021
 
 Abiding by state guidelines and facility requirements of Lloyd Show Dance Center,
-all SouthWesties ABQ event held at Lloyd Shaw Dance center will not be 
+all SouthWesties ABQ event held at Lloyd Shaw Dance center will be 
 requiring proof of vaccination for attendance. Masks remain mandatory as well, 
 and must be worn by all attendees to SouthWesties events during the duration
 of the lesson and dance.
