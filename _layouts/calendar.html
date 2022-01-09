@@ -30,8 +30,6 @@ layout: default
     {% assign current_month = todays_month %}
     {% assign current_year = todays_year %}
 
-    <!-- {{ "today" | date: "%b" }}     -->
-    <!-- {{ todays_year }} -->
     <div>
       <h2>{{ "today" | date: "%B" }}</h2>
     </div>
@@ -40,7 +38,7 @@ layout: default
       {% capture event_month %} {{ event.date | date: "%m" }} {% endcapture %}
       {% capture event_year %} {{ event.date | date: "%Y" }} {% endcapture %}
       <!-- <div style="max-width: 800px; margin: 50px auto;"> -->
-      {% if event_month > current_month or event_year > current_year %}
+      {% if (event_month > current_month and event_year == current_year) or event_year > current_year %}
         {% assign current_year = event_year %}
         {% assign current_month = event_month %}
         <div>
