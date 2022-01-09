@@ -24,6 +24,7 @@ layout: default
   </header> -->
 
   <div class="post-content" itemprop="articleBody">
+    {% capture today_date %} {{ "today" | date: "%Y-%m-%d %H:%M" }} {% endcapture %}
     {% capture todays_date_s %} {{ "today" | date: "%s" }} {% endcapture %}
     {% capture todays_month %} {{ "today" | date: "%m" }} {% endcapture %}
     {% capture todays_year %} {{ "today" | date: "%Y" }} {% endcapture %}
@@ -54,9 +55,9 @@ layout: default
                     </p>
                     <p style="font-size: 90%;">
                         {% if event.start_time.size > 1 %}
-                            {{ event.start_time[0] | date: "%I:%M"}}
+                            {{ event.start_time[0] | date: "%I:%M %p"}}
                         {% else %}
-                            {{ event.start_time | date: "%I:%M"}} - {{ event.end_time | date: "%I:%M"}} 
+                            {{ event.start_time | date: "%I:%M %p"}} - {{ event.end_time | date: "%I:%M %p"}} 
                         {% endif %}
                     </p>
                   </div>
