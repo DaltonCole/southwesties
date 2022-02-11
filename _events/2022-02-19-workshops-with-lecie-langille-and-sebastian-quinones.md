@@ -18,3 +18,6 @@ Schedule:
 2:30 - 3:30 PM | Shapes: Using your body to create a better dance
 
 Cost: $15 for 1, $25 for 2, $30 for all three.
+
+Our usual [covid restrictions]({{ "covid-restrictions/" | relative_url }}) apply. In short:
+vaccination and masks are required.
