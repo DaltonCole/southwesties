@@ -11,15 +11,19 @@
       <div class="wrapper">
         <h1 style="text-align: center;">Albuquerque West Coast Swing Dancing</h1>
 
+        {% capture todays_date_s %} {{ "today" | date: "%s" }} {% endcapture %}
+
         {% for post in site.posts %}
-          <article style="max-width: 800px; margin: 50px auto;">
-            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-            <p style="color: #828282; font-size: 90%;">{{ post.date | date: "%b %d, %Y" }}</p>
+          {% if forloop.index < 5 %}
+            <article style="max-width: 800px; margin: 50px auto;">
+              <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+              <p style="color: #828282; font-size: 90%;">{{ post.date | date: "%b %d, %Y" }}</p>
 
-            <!-- {{ post.content | truncatewords: 100 }} <a href="{{ post.url | relative_url }}">Read More</a> -->
-            {{ post.content }}
+              <!-- {{ post.content | truncatewords: 100 }} <a href="{{ post.url | relative_url }}">Read More</a> -->
+              {{ post.content }}
 
-          </article>
+            </article>
+          {% endif %}
         {% endfor %}
 
       </div>
