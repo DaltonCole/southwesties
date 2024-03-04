@@ -1,46 +1,47 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+url: southwestiesabq.com
+baseurl: ""
 
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: SouthWesties ABQ
 email: southwestiesabq@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Albuquerque West Coast Swing Dancing
-baseurl: "" # the subpath of your site, e.g. /blog
-drafturl: "/46137729c05b852e448e44692b110e58"
-url: "https://southwestiesabq.com" # the base hostname & protocol for your site, e.g. http://example.com
-facebook_url: "https://www.facebook.com/southwestiesabq/"
-address: "P.O. Box 50611, Albuquerque NM, 87181"
+description: "West Coast Swing in Albuquerque, New Mexico"
+logo:
+- path: img\logos\southwestiesabq-black.png
+  height: 60 #height in px, defaults to 52px
+
+
+# Team names, titles and social links
+people:
+- name: Elaine Rhoades
+  pic: elaine_rhoades
+  position: President
+  pronouns: She/They
+
+- name: Craig Hogle
+  pic: craig_hogle
+  position: Treasurer
+  pronouns: He/Him
+
+- name: Jason Torchinsky
+  pic: jason_torchinsky
+  position: Secretary
+  pronouns: They/Them
+
+# Social networks usernames (options: twittwer, facebook, stack-overflow, 
+# bitbucket, github, google-plus, flickr, dribbble, pinterest, instagram, 
+# tumblr, linkedin, etc.)
+social:
+  - title: facebook
+    url: https://www.facebook.com/southwestiesabq/
+  - title: instagram
+    url: https://www.instagram.com/southwestiesabq/
+
+
+# Postal address (add as many lines as necessary)
+address:
+  - line: P.O. Box 50611
+  - line: Albuquerque NM, 87181
 
 # Build settings
 markdown: kramdown
-theme: minima
-# plugins:
-
-collections:
-  events:
-    output: true
-    permalink: /:collection/:title:output_ext
-  
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+permalink: pretty
