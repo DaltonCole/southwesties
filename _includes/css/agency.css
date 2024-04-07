@@ -278,13 +278,13 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url('{{ site.baseurl }}/img/header-bg.png');
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    background-repeat: no-repeat;
 }
 
 header .intro-text {
@@ -331,6 +331,14 @@ header .intro-text .intro-heading {
         font-weight: 700;
         line-height: 75px;
     }
+}
+
+#header-default {
+    background-image: url('{{ site.baseurl }}/img/header-bg.png');
+}
+
+#header-sheven-x-swabq {
+    background-image: url('{{ site.baseurl }}/img/sheven-x-swabq/header-bg.png');
 }
 
 section {
