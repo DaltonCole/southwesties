@@ -312,6 +312,9 @@ strong { color: var(--text); }
 .hero {
   padding: 3rem 1.25rem 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero h1 {
