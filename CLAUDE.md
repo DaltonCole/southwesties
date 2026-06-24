@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-docker compose up --build   # dev server at http://localhost:8081 with live reload
+docker compose up --build   # dev server at http://localhost:8081 with live reload (host 8081 → container 8080)
 docker compose up           # start without rebuilding (after first build)
 ```
 

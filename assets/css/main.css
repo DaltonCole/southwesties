@@ -11,9 +11,9 @@
   --text:     #2b1a0f;
   --muted:    #7a6355;
 
-  --accent:   #bf4e1e;   /* terracotta */
-  --accent2:  #1d8a7b;   /* turquoise */
-  --accent-dark: #9e3d14;
+  --accent:   #cc0000;   /* chile red */
+  --accent2:  #007a00;   /* chile green */
+  --accent-dark: #990000;
 
   --border:   #ddd0be;
   --radius:   12px;
@@ -105,7 +105,7 @@ p { color: var(--muted); margin: 0.5rem 0; }
 strong { color: var(--text); }
 
 .gradient {
-  background: linear-gradient(100deg, var(--accent), var(--accent2));
+  background: linear-gradient(90deg, #cc0000, #007a00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -146,8 +146,9 @@ strong { color: var(--text); }
 }
 
 .site-logo {
-  height: 44px;
+  height: 52px;
   width: auto;
+  max-width: 260px;
 }
 
 .logo-link { display: inline-block; }
@@ -330,6 +331,12 @@ strong { color: var(--text); }
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.hero-chiles {
+  width: 160px;
+  margin: 0 auto 1.5rem;
+  display: block;
 }
 
 /* =========================
@@ -752,6 +759,13 @@ footer {
   margin-bottom: 2rem;
 }
 
+.footer-logo {
+  height: 52px;
+  width: auto;
+  max-width: 220px;
+  margin-bottom: 0.75rem;
+}
+
 .footer-org {
   font-size: 1.1rem;
   font-weight: 800;
@@ -844,7 +858,7 @@ footer a:hover { color: #fff; }
     padding: 0;
   }
 
-  .site-logo { height: 52px; }
+  .site-logo { height: 64px; }
 
   .carousel { height: 480px; }
 
