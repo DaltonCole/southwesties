@@ -1,0 +1,33 @@
+---
+layout: base.njk
+title: FAQ
+permalink: /faq/
+---
+
+<section class="container page-content">
+  <h1>Frequently Asked Questions</h1>
+  <p class="page-intro">New here? These are the questions we hear most often.</p>
+
+  <div class="faq-list">
+    {% for item in faq %}
+      <details class="faq-item card">
+        <summary>
+          {{ item.question }}
+          <span class="faq-icon">▾</span>
+        </summary>
+        <p>{{ item.answer }}</p>
+        {% if item.links %}
+          <ul class="faq-links">
+            {% for link in item.links %}
+              <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.name }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </details>
+    {% endfor %}
+  </div>
+
+  <div class="card faq-contact">
+    <p>Didn't find your answer? Email us at <a href="mailto:southwestiesabq@gmail.com" class="link">southwestiesabq@gmail.com</a> and we'll get back to you.</p>
+  </div>
+</section>

@@ -1,0 +1,55 @@
+---
+layout: base.njk
+title: Upcoming Events
+permalink: /events/
+---
+
+<section class="container page-content">
+  <h1>Upcoming Events</h1>
+  <p class="page-intro">We dance <strong>every Thursday</strong> at Lloyd Shaw Dance Center. Beginner lesson at 7 PM, social dance until 10 PM. Scroll down for any special events.</p>
+
+  <div class="events-list">
+    {% set now = "now" | toMillis %}
+    {% set hasUpcoming = false %}
+
+    {% for event in events | sort(attribute="date") %}
+      {% if event.date | toMillis >= now %}
+        {% set hasUpcoming = true %}
+        <div class="card event-card {% if event.image %}has-image{% endif %} {% if loop.first %}event-highlight{% endif %}">
+
+          {% if event.image %}
+            <img
+              src="{{ event.image }}"
+              alt="{{ event.title }}"
+              class="event-image"
+              data-full="{{ event.image }}"
+            >
+          {% endif %}
+
+          <div class="event-info">
+            {% if loop.first %}<span class="event-badge">Next Up</span>{% endif %}
+            <p class="event-date">{{ event.date | date("EEEE, MMMM d, yyyy") }}</p>
+            <h2>{{ event.title }}</h2>
+            <p class="event-location">📍 {{ event.location }}{% if event.address %} — {{ event.address }}{% endif %}</p>
+            <p class="event-time">🕖 {{ event.time }}</p>
+            {% for paragraph in event.description %}
+              <p>{{ paragraph }}</p>
+            {% endfor %}
+          </div>
+
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {% if not hasUpcoming %}
+      <div class="card">
+        <p>No upcoming events listed yet — check our <a href="https://www.facebook.com/SouthWestiesABQ" class="link" target="_blank" rel="noopener noreferrer">Facebook page</a> for the latest.</p>
+      </div>
+    {% endif %}
+  </div>
+
+  <div id="lightbox" class="lightbox hidden">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Expanded event image">
+  </div>
+</section>

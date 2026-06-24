@@ -1,0 +1,24 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".lightbox-close");
+
+  if (!lightbox || !lightboxImg || !closeBtn) return;
+
+  document.querySelectorAll(".event-image, .gallery-image").forEach(img => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.dataset.full || img.src;
+      lightbox.classList.remove("hidden");
+    });
+  });
+
+  closeBtn.addEventListener("click", () => lightbox.classList.add("hidden"));
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) lightbox.classList.add("hidden");
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") lightbox.classList.add("hidden");
+  });
+});

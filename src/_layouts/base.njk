@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title + " | SouthWesties ABQ" if title != "Home" else "SouthWesties ABQ — West Coast Swing in Albuquerque" }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SouthWesties ABQ — West Coast Swing dancing every Thursday in Albuquerque. Beginner lessons at 7 PM, social dance until 10 PM. All levels, all backgrounds welcome.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <link rel="icon" href="/assets/images/logo.png" type="image/png">
+</head>
+
+<body>
+
+  {% include "header.njk" %}
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.njk" %}
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/carousel.js"></script>
+  <script src="/assets/js/lightbox.js"></script>
+  <script src="/assets/js/menu.js"></script>
+</body>
+</html>

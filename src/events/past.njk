@@ -1,0 +1,65 @@
+---
+layout: base.njk
+title: Past Events
+permalink: /events/past/
+---
+
+<section class="container page-content">
+  <h1>Past Events</h1>
+
+  <div class="events-list">
+    {% set now = "now" | toMillis %}
+    {% set hasPast = false %}
+
+    {% for event in events | sort(attribute="date") | reverse %}
+      {% if event.date | toMillis < now %}
+        {% set hasPast = true %}
+        <div class="card event-card {% if event.image %}has-image{% endif %}">
+
+          {% if event.image %}
+            <img
+              src="{{ event.image }}"
+              alt="{{ event.title }}"
+              class="event-image"
+              data-full="{{ event.image }}"
+            >
+          {% endif %}
+
+          <div class="event-info">
+            <p class="event-date">{{ event.date | date("EEEE, MMMM d, yyyy") }}</p>
+            <h2>{{ event.title }}</h2>
+            <p class="event-location">📍 {{ event.location }}</p>
+            {% for paragraph in event.description %}
+              <p>{{ paragraph }}</p>
+            {% endfor %}
+          </div>
+
+          {% if event.gallery %}
+            <div class="event-gallery">
+              {% for photo in event.gallery %}
+                <img
+                  src="{{ photo }}"
+                  alt="{{ event.title }} photo"
+                  class="gallery-image"
+                  data-full="{{ photo }}"
+                >
+              {% endfor %}
+            </div>
+          {% endif %}
+
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {% if not hasPast %}
+      <div class="card">
+        <p>No past events yet — check back after our first Thursday dance!</p>
+      </div>
+    {% endif %}
+  </div>
+
+  <div id="lightbox" class="lightbox hidden">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Expanded photo">
+  </div>
+</section>
