@@ -616,6 +616,10 @@ strong { color: var(--text); }
   grid-template-areas: "image" "info";
 }
 
+.event-card.has-instagram {
+  grid-template-areas: "info" "instagram";
+}
+
 .event-card.event-highlight {
   border-color: var(--accent);
   border-width: 2px;
@@ -631,6 +635,38 @@ strong { color: var(--text); }
 }
 
 .event-info { grid-area: info; }
+
+/* =========================
+   INSTAGRAM LINK + EMBED
+========================= */
+
+
+.event-instagram-embed {
+  grid-area: instagram;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+}
+
+.event-instagram-embed .instagram-media {
+  width: 100% !important;
+  max-width: 480px !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+/* Next Up card with media */
+.next-event-card.has-media {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.next-event-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
 
 /* =========================
    LIGHTBOX
@@ -881,6 +917,16 @@ footer a:hover { color: #fff; }
   .event-card.has-image {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "image info";
+  }
+
+  .event-card.has-instagram {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "info instagram";
+  }
+
+  .next-event-card.has-media {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
   }
 
   .event-image { max-height: 600px; align-self: center; }

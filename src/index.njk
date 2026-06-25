@@ -103,7 +103,20 @@ title: Home
   <div class="container">
     <h2 class="section-heading">Next Up</h2>
     {% set next = upcomingEvents[0] %}
-    <div class="card next-event-card">
+    <div class="card next-event-card {% if next.image or next.instagramUrl %}has-media{% endif %}">
+      {% if next.image %}
+        <img src="{{ next.image }}" alt="{{ next.title }}" class="next-event-image">
+      {% elif next.instagramUrl %}
+        <div class="event-instagram-embed">
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="{{ next.instagramUrl }}"
+            data-instgrm-version="14"
+          >
+            <a href="{{ next.instagramUrl }}" target="_blank" rel="noopener noreferrer">View this post on Instagram</a>
+          </blockquote>
+        </div>
+      {% endif %}
       <div class="next-event-info">
         <p class="event-date">{{ next.date | date("EEEE, MMMM d, yyyy") }}</p>
         <h3>{{ next.title }}</h3>
@@ -111,7 +124,7 @@ title: Home
         {% for paragraph in next.description %}
           <p>{{ paragraph }}</p>
         {% endfor %}
-        <a href="/events/" class="btn" style="margin-top: 1rem;">All Upcoming Events</a>
+<a href="/events/" class="btn" style="margin-top: 1rem;">All Upcoming Events</a>
       </div>
     </div>
   </div>

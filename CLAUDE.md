@@ -47,6 +47,9 @@ No test suite exists. Build output lands in `docs/` (for GitHub Pages).
 
 **Logo:** Place logo file at `assets/images/logo.png` (referenced in `src/_includes/header.njk`).
 
-**Adding events:** Add an object to `src/_data/events.json` with at minimum `title`, `date`, `location`, and `description[]`. Optional: `image` (path under `assets/images/events/`) and `gallery[]` (paths under `assets/images/events/gallery/YYYY-MM-DD/`).
+**Adding events:** Add an object to `src/_data/events.json` with at minimum `title`, `date`, `location`, and `description[]`. Optional fields:
+- `image` — path to a locally hosted image (e.g. `/assets/images/events/2026-07-09.jpg`) shown on the event card
+- `instagramUrl` — URL of the Instagram post the image came from; renders a "📸 View on Instagram" link below the event description
+- `gallery[]` — array of paths under `assets/images/events/gallery/YYYY-MM-DD/` for past event photo grids
 
 **Enabling the carousel:** Add image paths to `src/_data/carousel.json` (e.g. `["/assets/images/carousel/photo.jpg"]`). The carousel section is hidden when the array is empty.
