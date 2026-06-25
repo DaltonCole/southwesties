@@ -15,7 +15,7 @@ permalink: /faq/
           {{ item.question }}
           <span class="faq-icon">▾</span>
         </summary>
-        <p>{{ item.answer }}</p>
+        <p>{{ item.answer | safe }}</p>
         {% if item.links %}
           <ul class="faq-links">
             {% for link in item.links %}

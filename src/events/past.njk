@@ -28,7 +28,7 @@ permalink: /events/past/
           <div class="event-info">
             <p class="event-date">{{ event.date | date("EEEE, MMMM d, yyyy") }}</p>
             <h2>{{ event.title }}</h2>
-            <p class="event-location">📍 {{ event.location }}</p>
+            <p class="event-location">📍 {% if event.mapsUrl %}<a href="{{ event.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ event.location }}</a>{% else %}{{ event.location }}{% endif %}</p>
             {% for paragraph in event.description %}
               <p>{{ paragraph }}</p>
             {% endfor %}

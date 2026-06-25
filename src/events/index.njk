@@ -6,7 +6,7 @@ permalink: /events/
 
 <section class="container page-content">
   <h1>Upcoming Events</h1>
-  <p class="page-intro">We dance <strong>every Thursday</strong> at Lloyd Shaw Dance Center. Beginner lesson at 7 PM, social dance until 10 PM. Scroll down for any special events.</p>
+  <p class="page-intro">We dance <strong>every Thursday</strong> at <a href="https://maps.google.com/?q=Lloyd+Shaw+Dance+Center,+3201+Juan+Tabo+Blvd+NE,+Albuquerque,+NM" target="_blank" rel="noopener noreferrer" class="link">Lloyd Shaw Dance Center</a>. Beginner lesson at 7 PM, social dance until 10 PM. Scroll down for any special events.</p>
 
   <div class="events-list">
     {% set now = "now" | toMillis %}
@@ -30,7 +30,7 @@ permalink: /events/
             {% if loop.first %}<span class="event-badge">Next Up</span>{% endif %}
             <p class="event-date">{{ event.date | date("EEEE, MMMM d, yyyy") }}</p>
             <h2>{{ event.title }}</h2>
-            <p class="event-location">📍 {{ event.location }}{% if event.address %} — {{ event.address }}{% endif %}</p>
+            <p class="event-location">📍 {% if event.mapsUrl %}<a href="{{ event.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ event.location }}</a>{% else %}{{ event.location }}{% endif %}{% if event.address %} — {{ event.address }}{% endif %}</p>
             <p class="event-time">🕖 {{ event.time }}</p>
             {% for paragraph in event.description %}
               <p>{{ paragraph }}</p>
