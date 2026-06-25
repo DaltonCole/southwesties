@@ -336,11 +336,17 @@ strong { color: var(--text); }
   flex-wrap: wrap;
 }
 
+.hero-chiles-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
 .hero-chiles {
   width: 160px;
-  margin: 0 auto 1.5rem;
+  max-width: 100%;
   display: block;
-  align-self: center;
 }
 
 /* =========================
