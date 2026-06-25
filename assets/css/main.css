@@ -775,21 +775,6 @@ strong { color: var(--text); }
 
 .faq-contact { margin-top: 2rem; }
 
-/* =========================
-   CODE OF CONDUCT
-========================= */
-
-.pdf-container {
-  padding: 0;
-  overflow: hidden;
-}
-
-.conduct-actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 1rem;
-}
 
 /* =========================
    FOOTER
