@@ -340,6 +340,7 @@ strong { color: var(--text); }
   width: 160px;
   margin: 0 auto 1.5rem;
   display: block;
+  align-self: center;
 }
 
 /* =========================
