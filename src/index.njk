@@ -106,6 +106,15 @@ title: Home
     <h2 class="section-heading">Next Up</h2>
     {% set next = upcomingEvents[0] %}
     <div class="card next-event-card {% if next.image or next.instagramUrl %}has-media{% endif %}">
+      <div class="next-event-info">
+        <p class="event-date">{{ next.date | date("EEEE, MMMM d, yyyy") }}</p>
+        <h3>{{ next.title }}</h3>
+        <p class="event-location">{% if next.mapsUrl %}<a href="{{ next.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ next.location }}</a>{% else %}{{ next.location }}{% endif %}{% if next.address %} · {{ next.address }}{% endif %}</p>
+        {% for paragraph in next.description %}
+          <p>{{ paragraph }}</p>
+        {% endfor %}
+        <a href="/events/" class="btn" style="margin-top: 1rem;">All Upcoming Events</a>
+      </div>
       {% if next.image %}
         <img src="{{ next.image }}" alt="{{ next.title }}" class="next-event-image">
       {% elif next.instagramUrl %}
@@ -119,15 +128,6 @@ title: Home
           </blockquote>
         </div>
       {% endif %}
-      <div class="next-event-info">
-        <p class="event-date">{{ next.date | date("EEEE, MMMM d, yyyy") }}</p>
-        <h3>{{ next.title }}</h3>
-        <p class="event-location">{% if next.mapsUrl %}<a href="{{ next.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ next.location }}</a>{% else %}{{ next.location }}{% endif %}{% if next.address %} · {{ next.address }}{% endif %}</p>
-        {% for paragraph in next.description %}
-          <p>{{ paragraph }}</p>
-        {% endfor %}
-<a href="/events/" class="btn" style="margin-top: 1rem;">All Upcoming Events</a>
-      </div>
     </div>
   </div>
 </section>
