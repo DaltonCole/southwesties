@@ -50,7 +50,7 @@ ul { margin: 0; padding: 0; }
    LAYOUT
 ========================= */
 
-main { padding-bottom: 4rem; }
+main { padding-bottom: 1.5rem; }
 
 section { margin: 3rem 0; }
 
@@ -450,7 +450,7 @@ strong { color: var(--text); }
 ========================= */
 
 .what-is-wcs {
-  padding: 2rem 0;
+  padding: 2rem 0 0;
 }
 
 .wcs-grid {
