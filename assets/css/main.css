@@ -28,6 +28,8 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+html { overflow-x: hidden; }
+
 body {
   margin: 0;
   font-family: 'Nunito', system-ui, -apple-system, sans-serif;
@@ -337,17 +339,11 @@ strong { color: var(--text); }
   flex-wrap: wrap;
 }
 
-.hero-chiles-wrap {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
 .hero-chiles {
   width: 160px;
   max-width: 100%;
   display: block;
+  margin: 0 auto 1.5rem;
 }
 
 /* =========================
