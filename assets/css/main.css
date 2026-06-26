@@ -52,7 +52,7 @@ ul { margin: 0; padding: 0; }
 
 main { padding-bottom: 1.5rem; }
 
-section { margin: 3rem 0; }
+section { margin: 2rem 0; }
 
 .container {
   max-width: var(--max-width);
@@ -782,7 +782,7 @@ footer {
   background: var(--bg-dark);
   color: rgba(255, 255, 255, 0.9);
   padding: 3rem 0 1.5rem;
-  margin-top: 4rem;
+  margin-top: 0;
 }
 
 .footer-inner {
