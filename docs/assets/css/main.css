@@ -609,20 +609,19 @@ strong { color: var(--text); }
 }
 
 .event-card {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-areas: "info";
   margin-bottom: 0;
 }
 
-.event-card.has-image {
-  grid-template-areas: "image" "info";
+.event-card.has-image,
+.event-card.has-instagram {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.event-card.has-instagram {
-  grid-template-areas: "info" "instagram";
-}
+/* DOM order: embed first, info second — reorder visually */
+.event-card.has-instagram .event-info { order: 1; }
+.event-card.has-instagram .event-instagram-embed { order: 2; }
 
 .event-card.event-highlight {
   border-color: var(--accent);
@@ -630,7 +629,6 @@ strong { color: var(--text); }
 }
 
 .event-image {
-  grid-area: image;
   width: 100%;
   height: auto;
   max-height: 500px;
@@ -638,15 +636,11 @@ strong { color: var(--text); }
   cursor: zoom-in;
 }
 
-.event-info { grid-area: info; }
-
 /* =========================
    INSTAGRAM LINK + EMBED
 ========================= */
 
-
 .event-instagram-embed {
-  grid-area: instagram;
   width: 100%;
   max-width: 100%;
   overflow: hidden;
@@ -661,9 +655,9 @@ strong { color: var(--text); }
 
 /* Next Up card with media */
 .next-event-card.has-media {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
-  grid-template-columns: minmax(0, 1fr);
 }
 
 .next-event-image {
@@ -903,26 +897,44 @@ footer a:hover { color: #fff; }
 
   .footer-inner { grid-template-columns: repeat(3, 1fr); }
 
-  .event-card.has-image {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-areas: "image info";
-  }
-
+  .event-card.has-image,
   .event-card.has-instagram {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-areas: "info instagram";
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .event-card.has-image .event-info,
+  .event-card.has-instagram .event-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .event-card.has-image .event-image {
+    flex: 0 0 45%;
+    min-width: 0;
+    max-height: 320px;
+  }
+
+  .event-card.has-instagram .event-instagram-embed {
+    flex: 0 0 45%;
+    min-width: 0;
   }
 
   .next-event-card.has-media {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    flex-direction: row;
+    align-items: flex-start;
   }
 
-  .next-event-card.has-media {
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
+  .next-event-card.has-media .next-event-info {
+    flex: 1;
+    min-width: 0;
   }
 
-  .event-image { max-height: 600px; align-self: center; }
+  .next-event-card.has-media .event-instagram-embed,
+  .next-event-card.has-media .next-event-image {
+    flex: 0 0 45%;
+    min-width: 0;
+  }
 
   .event-gallery { grid-template-columns: repeat(3, 1fr); }
 
