@@ -112,14 +112,14 @@
     "image": "/assets/images/events/sw-july-event.jpg",
     "schedule": [
       {
-        "label": "Friday, August 7",
+        "label": "Friday, July 30",
         "sessions": [
           { "time": "TBD", "title": "Workshop", "description": "" },
           { "time": "TBD", "title": "Social Dance", "description": "" }
         ]
       },
       {
-        "label": "Saturday, August 8",
+        "label": "Saturday, August 1",
         "sessions": [
           { "time": "TBD", "title": "Workshop", "description": "" },
           { "time": "TBD", "title": "Workshop", "description": "" },
@@ -127,7 +127,7 @@
         ]
       },
       {
-        "label": "Sunday, August 9",
+        "label": "Sunday, August 2",
         "sessions": [
           { "time": "TBD", "title": "Workshop", "description": "" }
         ]
