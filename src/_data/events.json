@@ -73,11 +73,45 @@
       "Beginner lesson from 7:00–7:45 PM — no experience or partner needed!",
       "Social dance from 7:45–10:00 PM. All levels welcome."
     ],
-    "instagramUrl": "https://www.instagram.com/p/DZaGtcturqu/"
+    "instagramUrl": "https://www.instagram.com/p/DaiNKSUudxc/"
   },
   {
     "title": "Thursday WCS Social Dance",
     "date": "2026-07-16",
+    "time": "7:00 PM",
+    "location": "Lloyd Shaw Dance Center",
+    "mapsUrl": "https://maps.google.com/?q=Lloyd+Shaw+Dance+Center,+5506+Coal+Ave+SE,+Albuquerque,+NM",
+    "address": "5506 Coal Ave SE, Albuquerque, NM 87108",
+    "description": [
+      "Beginner lesson from 7:00–7:45 PM — no experience or partner needed!",
+      "Social dance from 7:45–10:00 PM. All levels welcome."
+    ]
+  },
+  {
+    "title": "Thursday WCS Social Dance",
+    "date": "2026-07-23",
+    "time": "7:00 PM",
+    "location": "Lloyd Shaw Dance Center",
+    "mapsUrl": "https://maps.google.com/?q=Lloyd+Shaw+Dance+Center,+5506+Coal+Ave+SE,+Albuquerque,+NM",
+    "address": "5506 Coal Ave SE, Albuquerque, NM 87108",
+    "description": [
+      "Beginner lesson from 7:00–7:45 PM — no experience or partner needed!",
+      "Social dance from 7:45–10:00 PM. All levels welcome."
+    ]
+  },
+  {
+    "title": "Lizzy Spann Workshop Weekend",
+    "date": "2026-07-30",
+    "location": "Lloyd Shaw Dance Center",
+    "mapsUrl": "https://maps.google.com/?q=Lloyd+Shaw+Dance+Center,+5506+Coal+Ave+SE,+Albuquerque,+NM",
+    "address": "5506 Coal Ave SE, Albuquerque, NM 87108",
+    "description": [
+      "More information coming soon!"
+    ],
+    "image": "/assets/images/events/sw-july-event.jpg"
+  },{
+    "title": "Thursday WCS Social Dance",
+    "date": "2026-08-06",
     "time": "7:00 PM",
     "location": "Lloyd Shaw Dance Center",
     "mapsUrl": "https://maps.google.com/?q=Lloyd+Shaw+Dance+Center,+5506+Coal+Ave+SE,+Albuquerque,+NM",
