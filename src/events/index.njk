@@ -18,31 +18,40 @@ permalink: /events/
         {% set hasUpcoming = true %}
         <div class="card event-card {% if event.schedule %}has-schedule{% elif event.image %}has-image{% elif event.instagramUrl %}has-instagram{% endif %} {% if loop.first %}event-highlight{% endif %}">
 
-          {# Banner image for special events with a schedule #}
-          {% if event.schedule and event.image %}
-            <img src="{{ event.image }}" alt="{{ event.title }}" class="event-banner-image">
-          {% endif %}
+          {% if event.schedule %}
+            {# Special multi-day event layout #}
+            <div class="special-event-header">
+              {% if loop.first %}<span class="event-badge">Next Up</span>{% endif %}
+              <span class="event-badge special">Special Event</span>
+              <p class="event-date">{{ event.date | dateRange(event.endDate) }}</p>
+              <h2>{{ event.title }}</h2>
+            </div>
 
-          <div class="event-info">
-            {% if loop.first %}<span class="event-badge">Next Up</span>{% endif %}
-            {% if event.schedule %}<span class="event-badge special">Special Event</span>{% endif %}
-            <p class="event-date">
-              {% if event.endDate %}
-                {{ event.date | dateRange(event.endDate) }}
-              {% else %}
-                {{ event.date | date("EEEE, MMMM d, yyyy") }}
+            <div class="special-event-body">
+              {% if event.image %}
+                <img src="{{ event.image }}" alt="{{ event.title }}" class="special-event-image">
               {% endif %}
-            </p>
-            <h2>{{ event.title }}</h2>
-            <p class="event-location">📍 {% if event.mapsUrl %}<a href="{{ event.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ event.location }}</a>{% else %}{{ event.location }}{% endif %}{% if event.address %} — {{ event.address }}{% endif %}</p>
-            {% if event.time %}<p class="event-time">🕖 {{ event.time }}</p>{% endif %}
-            {% for paragraph in event.description %}
-              <p>{{ paragraph }}</p>
-            {% endfor %}
-          </div>
+              <div class="special-event-info">
+                <p class="event-location">📍 {% if event.mapsUrl %}<a href="{{ event.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ event.location }}</a>{% else %}{{ event.location }}{% endif %}{% if event.address %} — {{ event.address }}{% endif %}</p>
+                {% for paragraph in event.description %}
+                  <p>{{ paragraph }}</p>
+                {% endfor %}
+              </div>
+            </div>
 
-          {# Side media for regular events (no schedule) #}
-          {% if not event.schedule %}
+          {% else %}
+            {# Regular single-day event layout #}
+            <div class="event-info">
+              {% if loop.first %}<span class="event-badge">Next Up</span>{% endif %}
+              <p class="event-date">{{ event.date | date("EEEE, MMMM d, yyyy") }}</p>
+              <h2>{{ event.title }}</h2>
+              <p class="event-location">📍 {% if event.mapsUrl %}<a href="{{ event.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ event.location }}</a>{% else %}{{ event.location }}{% endif %}{% if event.address %} — {{ event.address }}{% endif %}</p>
+              {% if event.time %}<p class="event-time">🕖 {{ event.time }}</p>{% endif %}
+              {% for paragraph in event.description %}
+                <p>{{ paragraph }}</p>
+              {% endfor %}
+            </div>
+
             {% if event.image %}
               <img src="{{ event.image }}" alt="{{ event.title }}" class="event-image" data-full="{{ event.image }}">
             {% elif event.instagramUrl %}
