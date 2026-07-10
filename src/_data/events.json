@@ -114,16 +114,13 @@
       {
         "label": "Friday, July 30",
         "sessions": [
-          { "time": "TBD", "title": "Workshop", "description": "" },
-          { "time": "TBD", "title": "Social Dance", "description": "" }
+          { "time": "TBD", "title": "Workshop", "description": "" }
         ]
       },
       {
         "label": "Saturday, August 1",
         "sessions": [
-          { "time": "TBD", "title": "Workshop", "description": "" },
-          { "time": "TBD", "title": "Workshop", "description": "" },
-          { "time": "TBD", "title": "Social Dance", "description": "" }
+          { "time": "TBD", "title": "Workshop", "description": "" }
         ]
       },
       {
