@@ -13,6 +13,17 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj, { zone: "America/Denver" }).toFormat(format);
   });
 
+  // Returns upcoming events sorted ascending, optionally capped at `limit`
+  eleventyConfig.addFilter("upcomingEvents", (events, now, limit) => {
+    const filtered = events
+      .filter(e => {
+        const checkDate = e.endDate || e.date;
+        return DateTime.fromISO(checkDate, { zone: "America/Denver" }).toMillis() >= now;
+      })
+      .sort((a, b) => a.date.localeCompare(b.date));
+    return limit ? filtered.slice(0, limit) : filtered;
+  });
+
   // Formats a date range: same month → "Sept 11–13, 2026"; cross-month → "Aug 29 – Sept 1, 2026"
   eleventyConfig.addFilter("dateRange", (startDate, endDate) => {
     if (!startDate) return "";
