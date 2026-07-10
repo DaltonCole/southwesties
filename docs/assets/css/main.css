@@ -443,6 +443,101 @@ strong { color: var(--text); }
   padding: 0.2rem 0.6rem;
   border-radius: 99px;
   margin-bottom: 0.5rem;
+  margin-right: 0.3rem;
+}
+
+.event-badge.special {
+  background: var(--accent2);
+}
+
+/* =========================
+   MULTI-DAY EVENT SCHEDULE
+========================= */
+
+.event-banner-image {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 2px);
+  margin-bottom: 1.25rem;
+}
+
+.event-schedule {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.schedule-heading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+.schedule-day {
+  margin-bottom: 1.25rem;
+}
+
+.schedule-day:last-child {
+  margin-bottom: 0;
+}
+
+.schedule-day-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.schedule-sessions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule-session {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--bg-alt);
+}
+
+.schedule-session:last-child {
+  border-bottom: none;
+}
+
+.session-time {
+  flex: 0 0 110px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.session-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.session-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+}
+
+.session-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0.15rem 0 0;
 }
 
 /* =========================

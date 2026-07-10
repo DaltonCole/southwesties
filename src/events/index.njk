@@ -6,46 +6,78 @@ permalink: /events/
 
 <section class="container page-content">
   <h1>Upcoming Events</h1>
-  <p class="page-intro">We dance <strong>every Thursday</strong> at <a href="https://maps.google.com/?q=Lloyd+Shaw+Dance+Center,+3201+Juan+Tabo+Blvd+NE,+Albuquerque,+NM" target="_blank" rel="noopener noreferrer" class="link">Lloyd Shaw Dance Center</a>. Beginner lesson at 7 PM, social dance until 10 PM.</p>
+  <p class="page-intro">We dance <strong>every Thursday</strong> at <a href="https://maps.google.com/?q=Lloyd+Shaw+Dance+Center,+5506+Coal+Ave+SE,+Albuquerque,+NM" target="_blank" rel="noopener noreferrer" class="link">Lloyd Shaw Dance Center</a>. Beginner lesson at 7 PM, social dance until 10 PM.</p>
 
   <div class="events-list">
     {% set now = "now" | toMillis %}
     {% set hasUpcoming = false %}
 
     {% for event in events | sort(attribute="date") %}
-      {% if event.date | toMillis >= now %}
+      {% set _endMs = (event.endDate | toMillis) if event.endDate else (event.date | toMillis) %}
+      {% if _endMs >= now %}
         {% set hasUpcoming = true %}
-        <div class="card event-card {% if event.image %}has-image{% elif event.instagramUrl %}has-instagram{% endif %} {% if loop.first %}event-highlight{% endif %}">
+        <div class="card event-card {% if event.schedule %}has-schedule{% elif event.image %}has-image{% elif event.instagramUrl %}has-instagram{% endif %} {% if loop.first %}event-highlight{% endif %}">
 
-          {% if event.image %}
-            <img
-              src="{{ event.image }}"
-              alt="{{ event.title }}"
-              class="event-image"
-              data-full="{{ event.image }}"
-            >
-          {% elif event.instagramUrl %}
-            <div class="event-instagram-embed">
-              <blockquote
-                class="instagram-media"
-                data-instgrm-permalink="{{ event.instagramUrl }}"
-                data-instgrm-version="14"
-              >
-                <a href="{{ event.instagramUrl }}" target="_blank" rel="noopener noreferrer">View this post on Instagram</a>
-              </blockquote>
-            </div>
+          {# Banner image for special events with a schedule #}
+          {% if event.schedule and event.image %}
+            <img src="{{ event.image }}" alt="{{ event.title }}" class="event-banner-image">
           {% endif %}
 
           <div class="event-info">
             {% if loop.first %}<span class="event-badge">Next Up</span>{% endif %}
-            <p class="event-date">{{ event.date | date("EEEE, MMMM d, yyyy") }}</p>
+            {% if event.schedule %}<span class="event-badge special">Special Event</span>{% endif %}
+            <p class="event-date">
+              {% if event.endDate %}
+                {{ event.date | dateRange(event.endDate) }}
+              {% else %}
+                {{ event.date | date("EEEE, MMMM d, yyyy") }}
+              {% endif %}
+            </p>
             <h2>{{ event.title }}</h2>
             <p class="event-location">📍 {% if event.mapsUrl %}<a href="{{ event.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ event.location }}</a>{% else %}{{ event.location }}{% endif %}{% if event.address %} — {{ event.address }}{% endif %}</p>
-            <p class="event-time">🕖 {{ event.time }}</p>
+            {% if event.time %}<p class="event-time">🕖 {{ event.time }}</p>{% endif %}
             {% for paragraph in event.description %}
               <p>{{ paragraph }}</p>
             {% endfor %}
           </div>
+
+          {# Side media for regular events (no schedule) #}
+          {% if not event.schedule %}
+            {% if event.image %}
+              <img src="{{ event.image }}" alt="{{ event.title }}" class="event-image" data-full="{{ event.image }}">
+            {% elif event.instagramUrl %}
+              <div class="event-instagram-embed">
+                <blockquote class="instagram-media" data-instgrm-permalink="{{ event.instagramUrl }}" data-instgrm-version="14">
+                  <a href="{{ event.instagramUrl }}" target="_blank" rel="noopener noreferrer">View this post on Instagram</a>
+                </blockquote>
+              </div>
+            {% endif %}
+          {% endif %}
+
+          {# Full-width schedule for special events #}
+          {% if event.schedule %}
+            <div class="event-schedule">
+              <p class="schedule-heading">Schedule</p>
+              {% for day in event.schedule %}
+                <div class="schedule-day">
+                  <h3 class="schedule-day-label">{{ day.label }}</h3>
+                  <ul class="schedule-sessions">
+                    {% for session in day.sessions %}
+                      <li class="schedule-session">
+                        <span class="session-time">{{ session.time }}</span>
+                        <div class="session-info">
+                          <strong class="session-title">{{ session.title }}</strong>
+                          {% if session.description %}
+                            <p class="session-desc">{{ session.description }}</p>
+                          {% endif %}
+                        </div>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
 
         </div>
       {% endif %}
