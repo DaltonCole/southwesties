@@ -76,6 +76,9 @@
                   {% if session.description %}
                     <p class="session-desc">{{ session.description }}</p>
                   {% endif %}
+                  {% if session.registrationUrl %}
+                    <a href="{{ session.registrationUrl }}" target="_blank" rel="noopener noreferrer" class="btn registration-btn">{{ session.registrationLabel if session.registrationLabel else "Register Now" }}</a>
+                  {% endif %}
                 </td>
               </tr>
             {% endfor %}
