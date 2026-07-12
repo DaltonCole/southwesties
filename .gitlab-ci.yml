@@ -25,7 +25,8 @@ pages:
   script:
     - npm install
     - npm run build
-    - ln -s docs public
+  pages:
+    publish: docs
   artifacts:
     paths:
-      - public
+      - docs
