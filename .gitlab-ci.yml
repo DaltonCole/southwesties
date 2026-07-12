@@ -1,0 +1,31 @@
+# GitLab Pages deployment.
+# Triggers: push to main, nightly schedule, manual run from the UI.
+# No access token needed — GitLab Pages is served from CI artifacts, not a git push.
+#
+# Required one-time setup in GitLab:
+#
+# 1. Enable Pages for the project (if not already on):
+#      Project → Deploy → Pages
+#
+# 2. Create the nightly schedule (mirrors the GitHub cron):
+#      Build → Pipeline schedules → New schedule
+#      Cron: 0 7 * * *   (7 AM UTC = midnight Mountain Time, covers both MDT and MST)
+#      Target branch: main
+
+stages:
+  - deploy
+
+pages:
+  stage: deploy
+  image: node:24
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+  script:
+    - npm install
+    - npm run build
+    - ln -s docs public
+  artifacts:
+    paths:
+      - public
