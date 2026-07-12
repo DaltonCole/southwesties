@@ -724,6 +724,33 @@ strong { color: var(--text); }
   margin-bottom: 0;
 }
 
+.event-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.event-title-link:hover {
+  color: var(--accent2);
+}
+
+.event-detail-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.event-back-nav {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+}
+
+.event-back-sep {
+  margin: 0 0.5rem;
+  color: var(--border);
+}
+
 .event-card.has-image,
 .event-card.has-instagram {
   display: flex;

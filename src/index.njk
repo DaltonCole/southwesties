@@ -102,7 +102,7 @@ instagram: true
     <div class="card next-event-card {% if next.image or next.instagramUrl %}has-media{% endif %}">
       <div class="next-event-info">
         <p class="event-date">{{ next.date | date("EEEE, MMMM d, yyyy") }}</p>
-        <h3>{{ next.title }}</h3>
+        <h3><a href="/events/{{ next.date }}/" class="event-title-link">{{ next.title }}</a></h3>
         <p class="event-location">{% if next.mapsUrl %}<a href="{{ next.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ next.location }}</a>{% else %}{{ next.location }}{% endif %}{% if next.address %} · {{ next.address }}{% endif %}</p>
         {% for paragraph in next.description %}
           <p>{{ paragraph }}</p>

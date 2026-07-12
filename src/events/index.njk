@@ -21,7 +21,7 @@ instagram: true
             {% if loop.first %}<span class="event-badge">Next Up</span>{% endif %}
             <span class="event-badge special">Special Event</span>
             <p class="event-date">{{ event.date | dateRange(event.endDate) }}</p>
-            <h2>{{ event.title }}</h2>
+            <h2><a href="/events/{{ event.date }}/" class="event-title-link">{{ event.title }}</a></h2>
           </div>
 
           <div class="special-event-body">
@@ -53,7 +53,7 @@ instagram: true
           <div class="event-info">
             {% if loop.first %}<span class="event-badge">Next Up</span>{% endif %}
             <p class="event-date">{{ event.date | date("EEEE, MMMM d, yyyy") }}</p>
-            <h2>{{ event.title }}</h2>
+            <h2><a href="/events/{{ event.date }}/" class="event-title-link">{{ event.title }}</a></h2>
             <p class="event-location">📍 {% if event.mapsUrl %}<a href="{{ event.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ event.location }}</a>{% else %}{{ event.location }}{% endif %}{% if event.address %} — {{ event.address }}{% endif %}</p>
             {% if event.time %}<p class="event-time">🕖 {{ event.time }}</p>{% endif %}
             {% for paragraph in event.description %}
