@@ -1,0 +1,97 @@
+{% macro eventCard(event, headingTag="h2", isFirst=false, showGallery=false, linkTitle=true) %}
+<div class="card event-card {% if event.schedule %}has-schedule{% elif event.image %}has-image{% elif event.instagramUrl %}has-instagram{% endif %}{% if isFirst %} event-highlight{% endif %}">
+
+  {% if event.schedule %}
+    <div class="special-event-header">
+      {% if isFirst %}<span class="event-badge">Next Up</span>{% endif %}
+      <span class="event-badge special">Special Event</span>
+      <p class="event-date">{{ event.date | dateRange(event.endDate) }}</p>
+      <{{ headingTag }}{% if headingTag == "h1" %} class="event-detail-title"{% endif %}>
+        {%- if linkTitle %}<a href="/events/{{ event.date }}/" class="event-title-link">{{ event.title }}</a>{% else %}{{ event.title }}{% endif -%}
+      </{{ headingTag }}>
+    </div>
+
+    <div class="special-event-body">
+      {% if event.image %}
+        <img src="{{ event.image }}" alt="{{ event.title }}" class="special-event-image">
+      {% endif %}
+      <div class="special-event-info">
+        <p class="event-location">📍 {% if event.mapsUrl %}<a href="{{ event.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ event.location }}</a>{% else %}{{ event.location }}{% endif %}{% if event.address %} — {{ event.address }}{% endif %}</p>
+        {% for paragraph in event.description %}
+          <p>{{ paragraph }}</p>
+        {% endfor %}
+        {% if event.pricing %}
+          <div class="event-pricing">
+            <p class="pricing-heading">Pricing</p>
+            <ul class="pricing-list">
+              {% for line in event.pricing %}
+                <li>{{ line }}</li>
+              {% endfor %}
+            </ul>
+            {% if event.pricingNote %}
+              <p class="pricing-note">{{ event.pricingNote }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+  {% else %}
+    <div class="event-info">
+      {% if isFirst %}<span class="event-badge">Next Up</span>{% endif %}
+      <p class="event-date">{{ event.date | date("EEEE, MMMM d, yyyy") }}</p>
+      <{{ headingTag }}{% if headingTag == "h1" %} class="event-detail-title"{% endif %}>
+        {%- if linkTitle %}<a href="/events/{{ event.date }}/" class="event-title-link">{{ event.title }}</a>{% else %}{{ event.title }}{% endif -%}
+      </{{ headingTag }}>
+      <p class="event-location">📍 {% if event.mapsUrl %}<a href="{{ event.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ event.location }}</a>{% else %}{{ event.location }}{% endif %}{% if event.address %} — {{ event.address }}{% endif %}</p>
+      {% if event.time %}<p class="event-time">🕖 {{ event.time }}</p>{% endif %}
+      {% for paragraph in event.description %}
+        <p>{{ paragraph }}</p>
+      {% endfor %}
+    </div>
+
+    {% if event.image %}
+      <img src="{{ event.image }}" alt="{{ event.title }}" class="event-image" data-full="{{ event.image }}">
+    {% elif event.instagramUrl %}
+      <div class="event-instagram-embed">
+        <blockquote class="instagram-media" data-instgrm-permalink="{{ event.instagramUrl }}" data-instgrm-version="14">
+          <a href="{{ event.instagramUrl }}" target="_blank" rel="noopener noreferrer">View this post on Instagram</a>
+        </blockquote>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  {% if event.schedule %}
+    <div class="event-schedule">
+      <p class="schedule-heading">Schedule</p>
+      {% for day in event.schedule %}
+        <div class="schedule-day">
+          <h3 class="schedule-day-label">{{ day.label }}</h3>
+          <table class="schedule-sessions">
+            {% for session in day.sessions %}
+              <tr class="schedule-session">
+                <td class="session-time">{{ session.time }}</td>
+                <td class="session-info">
+                  <strong class="session-title">{{ session.title }}</strong>
+                  {% if session.description %}
+                    <p class="session-desc">{{ session.description }}</p>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </table>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if showGallery and event.gallery %}
+    <div class="event-gallery">
+      {% for photo in event.gallery %}
+        <img src="{{ photo }}" alt="{{ event.title }} photo" class="gallery-image" data-full="{{ photo }}">
+      {% endfor %}
+    </div>
+  {% endif %}
+
+</div>
+{% endmacro %}
