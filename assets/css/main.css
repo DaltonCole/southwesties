@@ -550,6 +550,49 @@ strong { color: var(--text); }
 }
 
 /* =========================
+   SCHEDULE — MOBILE STACK
+========================= */
+
+@media (max-width: 767px) {
+  .schedule-sessions,
+  .schedule-sessions tbody {
+    display: block;
+  }
+
+  .schedule-session {
+    display: block;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--bg-alt);
+  }
+
+  .schedule-session:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .schedule-session td {
+    display: inline;
+    padding: 0;
+    border-bottom: none;
+    width: auto;
+  }
+
+  .session-time {
+    padding-right: 0.4rem;
+  }
+
+  .session-title {
+    display: inline;
+  }
+
+  .session-desc {
+    display: block;
+    margin-top: 0.2rem;
+    padding-left: 0.75rem;
+  }
+}
+
+/* =========================
    WHAT IS WCS SECTION
 ========================= */
 
