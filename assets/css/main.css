@@ -494,12 +494,8 @@ strong { color: var(--text); }
   margin: 0 0 1rem;
 }
 
-.schedule-day {
-  margin-bottom: 1.25rem;
-}
-
-.schedule-day:last-child {
-  margin-bottom: 0;
+.schedule-day + .schedule-day {
+  margin-top: 1.5rem;
 }
 
 .schedule-day-label {
@@ -512,36 +508,32 @@ strong { color: var(--text); }
 }
 
 .schedule-sessions {
-  list-style: none;
-  padding: 0;
+  width: 100%;
+  border-collapse: collapse;
   margin: 0;
-  display: flex;
-  flex-direction: column;
 }
 
-.schedule-session {
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
+.schedule-session td {
   padding: 0.4rem 0;
+  vertical-align: top;
   border-bottom: 1px solid var(--bg-alt);
 }
 
-.schedule-session:last-child {
+.schedule-session:last-child td {
   border-bottom: none;
 }
 
 .session-time {
-  flex: 0 0 110px;
+  white-space: nowrap;
+  width: 1%;
+  padding-right: 2rem;
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--muted);
-  white-space: nowrap;
 }
 
 .session-info {
-  flex: 1;
-  min-width: 0;
+  width: 100%;
 }
 
 .session-title {

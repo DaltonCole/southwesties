@@ -78,19 +78,19 @@ instagram: true
             {% for day in event.schedule %}
               <div class="schedule-day">
                 <h3 class="schedule-day-label">{{ day.label }}</h3>
-                <ul class="schedule-sessions">
+                <table class="schedule-sessions">
                   {% for session in day.sessions %}
-                    <li class="schedule-session">
-                      <span class="session-time">{{ session.time }}</span>
-                      <div class="session-info">
+                    <tr class="schedule-session">
+                      <td class="session-time">{{ session.time }}</td>
+                      <td class="session-info">
                         <strong class="session-title">{{ session.title }}</strong>
                         {% if session.description %}
                           <p class="session-desc">{{ session.description }}</p>
                         {% endif %}
-                      </div>
-                    </li>
+                      </td>
+                    </tr>
                   {% endfor %}
-                </ul>
+                </table>
               </div>
             {% endfor %}
           </div>
