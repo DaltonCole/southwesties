@@ -174,8 +174,7 @@ strong { color: var(--text); }
 
 .nav.open { display: flex; }
 
-.nav > a,
-.dropdown-toggle {
+.nav > a {
   font-weight: 600;
   font-size: 1rem;
   padding: 0.4rem 0;
@@ -183,69 +182,7 @@ strong { color: var(--text); }
   transition: color 0.15s;
 }
 
-.nav > a:hover,
-.dropdown-toggle:hover { color: var(--accent); }
-
-/* =========================
-   DROPDOWN NAV
-========================= */
-
-.nav-item, .dropdown-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.dropdown { position: relative; }
-
-.dropdown::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 10px;
-}
-
-.dropdown-toggle {
-  background: none;
-  border: none;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  display: none;
-  flex-direction: column;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  min-width: 200px;
-  padding: 0.4rem 0;
-  box-shadow: var(--shadow-md);
-  z-index: 1000;
-}
-
-.dropdown-menu.open { display: flex; }
-
-.dropdown-menu li { list-style: none; }
-
-.dropdown-menu a {
-  display: block;
-  padding: 0.5rem 1rem;
-  font-weight: 600;
-  color: var(--text);
-  transition: background 0.15s, color 0.15s;
-}
-
-.dropdown-menu a:hover {
-  background: var(--bg-alt);
-  color: var(--accent);
-}
+.nav > a:hover { color: var(--accent); }
 
 /* =========================
    BUTTONS
@@ -748,10 +685,6 @@ strong { color: var(--text); }
   gap: 1rem;
 }
 
-/* DOM order: embed first, info second — reorder visually */
-.event-card.has-instagram .event-info { order: 1; }
-.event-card.has-instagram .event-instagram-embed { order: 2; }
-
 .event-card.event-highlight {
   border-color: var(--accent);
   border-width: 2px;
@@ -1083,8 +1016,6 @@ footer a:hover { color: #fff; }
   .gallery-image { height: 140px; }
 
   .wcs-grid { grid-template-columns: 1fr 1fr; }
-
-  .dropdown:hover .dropdown-menu { display: flex; }
 }
 
 /* =========================

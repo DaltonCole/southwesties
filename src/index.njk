@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: Home
+instagram: true
 ---
 
 {% if carousel.length > 0 %}
@@ -91,18 +92,13 @@ title: Home
 </section>
 
 {% set now = "now" | toMillis %}
-{% set upcomingEvents = [] %}
-{% for event in events | sort(attribute="date") %}
-  {% if event.date | toMillis >= now %}
-    {% set upcomingEvents = (upcomingEvents.push(event), upcomingEvents) %}
-  {% endif %}
-{% endfor %}
+{% set upcomingList = events | upcomingEvents(now) %}
 
-{% if upcomingEvents.length > 0 %}
+{% if upcomingList.length > 0 %}
 <section class="next-event-section">
   <div class="container">
     <h2 class="section-heading">Next Up</h2>
-    {% set next = upcomingEvents[0] %}
+    {% set next = upcomingList[0] %}
     <div class="card next-event-card {% if next.image or next.instagramUrl %}has-media{% endif %}">
       <div class="next-event-info">
         <p class="event-date">{{ next.date | date("EEEE, MMMM d, yyyy") }}</p>

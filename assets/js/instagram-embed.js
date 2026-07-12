@@ -12,11 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   containers.forEach((container) => {
-    // Handle case where embed.js already ran before DOMContentLoaded
     fitIframe(container);
+    if (container.querySelector("iframe[data-fitted]")) return;
 
-    // Watch for embed.js injecting the iframe after DOMContentLoaded
-    const observer = new MutationObserver(() => fitIframe(container));
+    const observer = new MutationObserver(() => {
+      fitIframe(container);
+      if (container.querySelector("iframe[data-fitted]")) observer.disconnect();
+    });
     observer.observe(container, { childList: true, subtree: true });
   });
 });
