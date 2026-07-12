@@ -1,0 +1,34 @@
+---
+layout: base.njk
+title: Upcoming Events
+permalink: /events/
+instagram: true
+---
+{% from "event-card.njk" import eventCard %}
+
+<section class="container page-content">
+  <h1>Upcoming Events</h1>
+  <p class="page-intro">We dance <strong>every Thursday</strong> at <a href="https://maps.google.com/?q=Lloyd+Shaw+Dance+Center,+5506+Coal+Ave+SE,+Albuquerque,+NM" target="_blank" rel="noopener noreferrer" class="link">Lloyd Shaw Dance Center</a>. Beginner lesson at 7 PM, social dance until 10 PM.</p>
+
+  {% set now = "now" | toMillis %}
+  {% set upcomingList = events | upcomingEvents(now, 6) %}
+
+  <div class="events-list">
+    {% for event in upcomingList %}
+      {{ eventCard(event=event, isFirst=loop.first) }}
+    {% else %}
+      <div class="card">
+        <p>No upcoming events listed yet — check our <a href="https://www.facebook.com/SouthWestiesABQ" class="link" target="_blank" rel="noopener noreferrer">Facebook page</a> for the latest.</p>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div id="lightbox" class="lightbox hidden">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Expanded event image">
+  </div>
+
+  <p style="text-align: center; margin-top: 2rem;">
+    Looking for a previous event? <a href="/events/past/" class="link">View past events →</a>
+  </p>
+</section>

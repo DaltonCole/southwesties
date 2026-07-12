@@ -1,0 +1,28 @@
+---
+layout: base.njk
+instagram: true
+pagination:
+  data: events
+  size: 1
+  alias: event
+permalink: "/events/{{ event.date }}/"
+eleventyComputed:
+  title: "{{ event.title }}"
+---
+{% from "event-card.njk" import eventCard %}
+
+<section class="container page-content">
+  <p class="event-back-nav">
+    <a href="/events/" class="link">← Upcoming Events</a>
+    <span class="event-back-sep">·</span>
+    <a href="/events/past/" class="link">Past Events</a>
+  </p>
+
+  {{ eventCard(event=event, headingTag="h1", linkTitle=false) }}
+
+  <div id="lightbox" class="lightbox hidden">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Expanded event image">
+  </div>
+
+</section>

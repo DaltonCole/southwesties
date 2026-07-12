@@ -1,0 +1,48 @@
+---
+layout: base.njk
+title: Past Events
+instagram: true
+pagination:
+  data: pastEvents
+  size: 20
+  alias: pageEvents
+permalink: "/events/past/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
+---
+{% from "event-card.njk" import eventCard %}
+
+<section class="container page-content">
+  <h1>Past Events</h1>
+
+  <div class="events-list">
+    {% for event in pageEvents %}
+      {{ eventCard(event=event, showGallery=true) }}
+    {% else %}
+      <div class="card">
+        <p>No past events yet — check back after our first Thursday dance!</p>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if pagination.pages.length > 1 %}
+    <nav class="pagination-nav" aria-label="Past events pages">
+      {% if pagination.href.previous %}
+        <a href="{{ pagination.href.previous }}" class="btn secondary">← Previous</a>
+      {% else %}
+        <span class="btn secondary pagination-disabled">← Previous</span>
+      {% endif %}
+
+      <span class="pagination-info">Page {{ pagination.pageNumber + 1 }} of {{ pagination.pages.length }}</span>
+
+      {% if pagination.href.next %}
+        <a href="{{ pagination.href.next }}" class="btn secondary">Next →</a>
+      {% else %}
+        <span class="btn secondary pagination-disabled">Next →</span>
+      {% endif %}
+    </nav>
+  {% endif %}
+
+  <div id="lightbox" class="lightbox hidden">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Expanded photo">
+  </div>
+</section>

@@ -1,0 +1,150 @@
+---
+layout: base.njk
+title: Home
+instagram: true
+---
+
+{% if carousel.length > 0 %}
+<div class="carousel">
+  <div class="carousel-track" id="carousel-track">
+    {% for item in carousel %}
+      <img src="{{ item }}" alt="Dance photo {{ loop.index }}">
+    {% endfor %}
+  </div>
+  <button class="carousel-btn carousel-prev" aria-label="Previous photo">&#8249;</button>
+  <button class="carousel-btn carousel-next" aria-label="Next photo">&#8250;</button>
+  <div class="carousel-dots" id="carousel-dots"></div>
+</div>
+{% endif %}
+
+<section class="hero container">
+  <img src="/assets/images/chiles-face.svg" alt="" class="hero-chiles" aria-hidden="true">
+  <h1>Dance With Us<br><span class="gradient">Every Thursday</span></h1>
+  <p class="hero-sub">West Coast Swing in Albuquerque — beginner lessons, social dancing, and a community that welcomes everyone. No partner or experience needed.</p>
+  <div class="hero-cta">
+    <a href="/events/" class="btn">See Upcoming Events</a>
+    <a href="/about/" class="btn secondary">Learn More</a>
+  </div>
+</section>
+
+<section class="weekly-info">
+  <div class="container">
+    <div class="info-bar">
+      <div class="info-item">
+        <span class="info-icon">📅</span>
+        <div>
+          <strong>Every Thursday</strong>
+          <span>7:00 PM – 10:00 PM</span>
+        </div>
+      </div>
+      <div class="info-divider"></div>
+      <div class="info-item">
+        <span class="info-icon">📍</span>
+        <div>
+          <strong><a href="https://maps.google.com/?q=Lloyd+Shaw+Dance+Center,+5506+Coal+Ave+SE,+Albuquerque,+NM" target="_blank" rel="noopener noreferrer" class="info-link">Lloyd Shaw Dance Center</a></strong>
+          <span>5506 Coal Ave SE, ABQ</span>
+        </div>
+      </div>
+      <div class="info-divider"></div>
+      <div class="info-item">
+        <span class="info-icon">🎓</span>
+        <div>
+          <strong>Beginner Lesson Included</strong>
+          <span>7:00–7:45 PM every week</span>
+        </div>
+      </div>
+      <div class="info-divider"></div>
+      <div class="info-item">
+        <span class="info-icon">🆓</span>
+        <div>
+          <strong>First Time Free</strong>
+          <span>Just $3 after that</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <h2 class="section-heading">Everyone's Welcome Here</h2>
+  <div class="grid">
+    <div class="card feature-card">
+      <div class="feature-icon">🌱</div>
+      <h3>No Experience Needed</h3>
+      <p>We start fresh every week with a beginner lesson. You can walk in having never danced a step and leave knowing how to dance West Coast Swing!</p>
+    </div>
+    <div class="card feature-card">
+      <div class="feature-icon">🤝</div>
+      <h3>No Partner Needed</h3>
+      <p>We rotate partners throughout the night. Come alone, come with friends — everyone dances with everyone.</p>
+    </div>
+    <div class="card feature-card">
+      <div class="feature-icon">🌍</div>
+      <h3>Truly Inclusive</h3>
+      <p>We're welcoming to all regardless of age, background, gender, or skill level. Lead, follow, or both — you decide.</p>
+    </div>
+    <div class="card feature-card">
+      <div class="feature-icon">💵</div>
+      <h3>First Time Free</h3>
+      <p>Your first Thursday is on us. After that, it's just $3 at the door.</p>
+    </div>
+  </div>
+</section>
+
+{% set now = "now" | toMillis %}
+{% set upcomingList = events | upcomingEvents(now) %}
+
+{% if upcomingList.length > 0 %}
+<section class="next-event-section">
+  <div class="container">
+    <h2 class="section-heading">Next Up</h2>
+    {% set next = upcomingList[0] %}
+    <div class="card next-event-card {% if next.image or next.instagramUrl %}has-media{% endif %}">
+      <div class="next-event-info">
+        <p class="event-date">{{ next.date | date("EEEE, MMMM d, yyyy") }}</p>
+        <h3><a href="/events/{{ next.date }}/" class="event-title-link">{{ next.title }}</a></h3>
+        <p class="event-location">{% if next.mapsUrl %}<a href="{{ next.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ next.location }}</a>{% else %}{{ next.location }}{% endif %}{% if next.address %} · {{ next.address }}{% endif %}</p>
+        {% for paragraph in next.description %}
+          <p>{{ paragraph }}</p>
+        {% endfor %}
+        <a href="/events/" class="btn" style="margin-top: 1rem;">All Upcoming Events</a>
+      </div>
+      {% if next.image %}
+        <img src="{{ next.image }}" alt="{{ next.title }}" class="next-event-image">
+      {% elif next.instagramUrl %}
+        <div class="event-instagram-embed">
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="{{ next.instagramUrl }}"
+            data-instgrm-version="14"
+          >
+            <a href="{{ next.instagramUrl }}" target="_blank" rel="noopener noreferrer">View this post on Instagram</a>
+          </blockquote>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="what-is-wcs">
+  <div class="container">
+    <div class="wcs-grid">
+      <div>
+        <h2 class="section-heading">What Is West Coast Swing?</h2>
+        <p>West Coast Swing is a partner dance with a distinctive elastic, slotted style. Unlike many partner dances, it's completely music-agnostic — it works with blues, pop, country, hip-hop, R&B, and pretty much anything with a beat in 4:4 time.</p>
+        <p>It's a <strong>social dance</strong>, which means the steps are improvised in conversation with your partner rather than choreographed. That's what makes it endlessly fun to learn: every dance is different.</p>
+        <a href="/about/" class="btn secondary" style="margin-top: 1rem;">More About Us</a>
+      </div>
+      <div class="wcs-facts card">
+        <h3>Quick Facts</h3>
+        <ul class="facts-list">
+          <li>Partner dance — no prior dance experience needed</li>
+          <li>Works with virtually any music genre</li>
+          <li>Roles are not gender-assigned — lead or follow, your choice</li>
+          <li>Albuquerque has a friendly, active WCS community</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
