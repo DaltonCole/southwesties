@@ -433,6 +433,52 @@ strong { color: var(--text); }
   object-fit: contain;
 }
 
+.event-pricing {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.pricing-heading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+
+.pricing-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.pricing-list li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.pricing-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent2);
+  font-weight: 700;
+}
+
+.pricing-note {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0.5rem 0 0;
+}
+
 .event-schedule {
   margin-top: 1.25rem;
   padding-top: 1.25rem;

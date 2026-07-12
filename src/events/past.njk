@@ -32,6 +32,19 @@ permalink: "/events/past/{% if pagination.pageNumber > 0 %}page/{{ pagination.pa
               {% for paragraph in event.description %}
                 <p>{{ paragraph }}</p>
               {% endfor %}
+              {% if event.pricing %}
+                <div class="event-pricing">
+                  <p class="pricing-heading">Pricing</p>
+                  <ul class="pricing-list">
+                    {% for line in event.pricing %}
+                      <li>{{ line }}</li>
+                    {% endfor %}
+                  </ul>
+                  {% if event.pricingNote %}
+                    <p class="pricing-note">{{ event.pricingNote }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
             </div>
           </div>
 
