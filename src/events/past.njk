@@ -15,7 +15,7 @@ permalink: "/events/past/{% if pagination.pageNumber > 0 %}page/{{ pagination.pa
 
   <div class="events-list">
     {% for event in pageEvents %}
-      {{ eventCard(event=event, showGallery=true) }}
+      {{ eventCard(event=event) }}
     {% else %}
       <div class="card">
         <p>No past events yet — check back after our first Thursday dance!</p>
