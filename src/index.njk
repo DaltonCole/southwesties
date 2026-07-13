@@ -93,15 +93,16 @@ instagram: true
 
 {% set now = "now" | toMillis %}
 {% set upcomingList = events | upcomingEvents(now) %}
+{% set next = upcomingList | first %}
+{% set nextSpecial = upcomingList | selectattr("schedule") | first %}
 
-{% if upcomingList.length > 0 %}
+{% if next %}
 <section class="next-event-section">
   <div class="container">
     <h2 class="section-heading">Next Up</h2>
-    {% set next = upcomingList[0] %}
     <div class="card next-event-card {% if next.image or next.instagramUrl %}has-media{% endif %}">
       <div class="next-event-info">
-        <p class="event-date">{{ next.date | date("EEEE, MMMM d, yyyy") }}</p>
+        <p class="event-date">{{ next.date | dateRange(next.endDate) }}</p>
         <h3><a href="/events/{{ next.date }}/" class="event-title-link">{{ next.title }}</a></h3>
         <p class="event-location">{% if next.mapsUrl %}<a href="{{ next.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ next.location }}</a>{% else %}{{ next.location }}{% endif %}{% if next.address %} · {{ next.address }}{% endif %}</p>
         {% for paragraph in next.description %}
@@ -121,6 +122,29 @@ instagram: true
             <a href="{{ next.instagramUrl }}" target="_blank" rel="noopener noreferrer">View this post on Instagram</a>
           </blockquote>
         </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if nextSpecial and nextSpecial.date != next.date %}
+<section class="next-event-section">
+  <div class="container">
+    <h2 class="section-heading">Upcoming Special Event</h2>
+    <div class="card next-event-card {% if nextSpecial.image %}has-media{% endif %}">
+      <div class="next-event-info">
+        <span class="event-badge special">Special Event</span>
+        <p class="event-date">{{ nextSpecial.date | dateRange(nextSpecial.endDate) }}</p>
+        <h3><a href="/events/{{ nextSpecial.date }}/" class="event-title-link">{{ nextSpecial.title }}</a></h3>
+        <p class="event-location">{% if nextSpecial.mapsUrl %}<a href="{{ nextSpecial.mapsUrl }}" target="_blank" rel="noopener noreferrer" class="link">{{ nextSpecial.location }}</a>{% else %}{{ nextSpecial.location }}{% endif %}{% if nextSpecial.address %} · {{ nextSpecial.address }}{% endif %}</p>
+        {% for paragraph in nextSpecial.description %}
+          <p>{{ paragraph }}</p>
+        {% endfor %}
+        <a href="/events/{{ nextSpecial.date }}/" class="btn" style="margin-top: 1rem;">View Schedule</a>
+      </div>
+      {% if nextSpecial.image %}
+        <img src="{{ nextSpecial.image }}" alt="{{ nextSpecial.title }}" class="next-event-image">
       {% endif %}
     </div>
   </div>
