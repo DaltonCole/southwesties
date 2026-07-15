@@ -105,7 +105,8 @@
     "location": "Lloyd Shaw Dance Center",
     "mapsUrl": "https://maps.google.com/?q=Lloyd+Shaw+Dance+Center,+5506+Coal+Ave+SE,+Albuquerque,+NM",
     "address": "5506 Coal Ave SE, Albuquerque, NM 87108",
-    "image": "/assets/images/events/sw-july-event.jpg",
+    "image": "/assets/images/events/sw-july-event-detailed.jpg",
+    "gallary": ["/assets/images/events/sw-july-event.jpg"],
     "description": [
       "Join us for a special workshop weekend with guest instructor Lizzy Spann! The weekend features beginner and social dancing, workshops, a guided practice, a competitors' retreat, private lessons, and a board game night.",
       "Private lessons are available Friday and Saturday. To book a slot, email southwestiesabq@gmail.com or text (480) 292-6023. Lizzy's rate is $120 per 45 min, paid directly to her.",
@@ -147,12 +148,16 @@
           {
             "time": "5:30–7:30 PM",
             "title": "Guided Practice",
-            "description": "Lloyd Shaw Dance Center. RSVP required — limit 30. Registration opens soon."
+            "registrationUrl": "https://tinyurl.com/LizzyGuidedPractice",
+            "registrationLabel": "Guided Practice Sign-Up",
+            "description": "Lloyd Shaw Dance Center. RSVP required — limit 30."
           },
           {
             "time": "8:00 PM–Midnight",
             "title": "Board Game Night with Lizzy Spann",
-            "description": "Free. RSVP required. Registration opens soon."
+            "registrationUrl": "https://tinyurl.com/LizzyGameNight",
+            "registrationLabel": "Board Game Night Sign-Up",
+            "description": "Free. RSVP required."
           }
         ]
       },
@@ -192,7 +197,9 @@
           {
             "time": "12:00–2:30 PM",
             "title": "Competitors' Practice",
-            "description": "Lloyd Shaw Dance Center (small room). RSVP required — limit 20. Registration opens soon. Bring your ideas on what to focus on!"
+            "registrationUrl": "https://tinyurl.com/LizzyCompetitorPractice",
+            "registrationLabel": "Competitor's Practice Sign-Up",
+            "description": "Lloyd Shaw Dance Center (small room). RSVP required — limit 20. Bring your ideas on what to focus on!"
           }
         ]
       }

@@ -1,4 +1,4 @@
-{% macro eventCard(event, headingTag="h2", isFirst=false, showGallery=false, linkTitle=true) %}
+{% macro eventCard(event, headingTag="h2", isFirst=false, linkTitle=true) %}
 <div class="card event-card {% if event.schedule %}has-schedule{% elif event.image %}has-image{% elif event.instagramUrl %}has-instagram{% endif %}{% if isFirst %} event-highlight{% endif %}">
 
   {% if event.schedule %}
@@ -88,7 +88,7 @@
     </div>
   {% endif %}
 
-  {% if showGallery and event.gallery %}
+  {% if event.gallery %}
     <div class="event-gallery">
       {% for photo in event.gallery %}
         <img src="{{ photo }}" alt="{{ event.title }} photo" class="gallery-image" data-full="{{ photo }}">
