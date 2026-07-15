@@ -148,12 +148,16 @@
           {
             "time": "5:30–7:30 PM",
             "title": "Guided Practice",
-            "description": "Lloyd Shaw Dance Center. RSVP required — limit 30. Registration opens soon."
+            "registrationUrl": "https://tinyurl.com/LizzyGuidedPractice",
+            "registrationLabel": "Guided Practice Sign-Up",
+            "description": "Lloyd Shaw Dance Center. RSVP required — limit 30."
           },
           {
             "time": "8:00 PM–Midnight",
             "title": "Board Game Night with Lizzy Spann",
-            "description": "Free. RSVP required. Registration opens soon."
+            "registrationUrl": "https://tinyurl.com/LizzyGameNight",
+            "registrationLabel": "Board Game Night Sign-Up",
+            "description": "Free. RSVP required."
           }
         ]
       },
@@ -193,7 +197,9 @@
           {
             "time": "12:00–2:30 PM",
             "title": "Competitors' Practice",
-            "description": "Lloyd Shaw Dance Center (small room). RSVP required — limit 20. Registration opens soon. Bring your ideas on what to focus on!"
+            "registrationUrl": "https://tinyurl.com/LizzyCompetitorPractice",
+            "registrationLabel": "Competitor's Practice Sign-Up",
+            "description": "Lloyd Shaw Dance Center (small room). RSVP required — limit 20. Bring your ideas on what to focus on!"
           }
         ]
       }
