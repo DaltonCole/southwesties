@@ -110,7 +110,7 @@
     "description": [
       "Join us for a special workshop weekend with guest instructor Lizzy Spann! The weekend features beginner and social dancing, workshops, a guided practice, a competitors' retreat, private lessons, and a board game night.",
       "Private lessons are available Friday and Saturday. To book a slot, email southwestiesabq@gmail.com or text (480) 292-6023. Lizzy's rate is $120 per 45 min, paid directly to her.",
-      "Registration for RSVP-required events (guided practice, board game night, and competitors' practice) will open during the week of July 13."
+      "Registration for RSVP-required events (guided practice, board game night, and competitors' practice) are open! Checkout the links in the schedule below!."
     ],
     "pricing": [
       "Thursday social dance — $3 (returning dancers); free for first-timers.",
@@ -182,6 +182,8 @@
           {
             "time": "2:30–3:30 PM",
             "title": "Workshop 3 with Lizzy Spann",
+            "registrationUrl": "https://tinyurl.com/LizzyWorkshops",
+            "registrationLabel": "Workshop(s) Sign-Up",
             "description": "Lloyd Shaw Dance Center."
           },
           {
